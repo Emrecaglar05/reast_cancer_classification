@@ -1,68 +1,56 @@
-🎗️ Meme Kanseri Teşhis Tahmin Modeli
-https://via.placeholder.com/1200x400?text=Breast+Cancer+Diagnosis+ML+Model
+Proje Başlığı: Meme Kanseri Teşhisi İçin Makine Öğrenimi Modelleri
+Bu proje, meme kanseri teşhisi için makine öğrenimi modellerini kullanarak hasta verilerini analiz eder. Amacımız, hücre çekirdeği özellikleri gibi verilerden yola çıkarak bir tümörün iyi huylu (benign) mu yoksa kötü huylu (malignant) mu olduğunu doğru bir şekilde tahmin edebilen modeller oluşturmaktır.
 
-📌 Proje Özeti
-Bu proje, makine öğrenmesi teknikleri kullanarak meme kanseri teşhisini otomatikleştirmeyi amaçlamaktadır. Wisconsin Diagnostic veri setindeki hücre özelliklerine dayanarak tümörlerin iyi huylu (benign) veya kötü huylu (malignant) olarak sınıflandırılmasını sağlar.
+Proje Amacı
+Meme kanseri erken teşhisi, tedavi başarısı için kritik öneme sahiptir. Bu proje, elde edilen tıbbi verileri kullanarak makine öğrenimi algoritmalarıyla potansiyel olarak kanserli hücreleri otomatik olarak tespit etmeyi hedefler. Bu sayede, doktorlara tanı sürecinde yardımcı olabilecek güçlü bir araç sunulması amaçlanmaktadır.
 
-🔍 Öne Çıkan Özellikler
-✔ %97.1 doğruluk oranıyla yüksek performans
-✔ 3 farklı makine öğrenmesi algoritmasının karşılaştırması
-✔ SHAP değerleriyle model interpretability analizi
-✔ Temiz ve modüler kod yapısı
+Veri Seti
+Bu proje, Wisconsin Meme Kanseri Veri Seti (Diagnosis) üzerinde çalışmaktadır. Veri seti, her bir tümörün çeşitli özelliklerini (yarıçap, doku, çevre, pürüzsüzlük vb.) içeren 30 farklı sayısal özniteliğe sahiptir. Veri setindeki temel hedef değişken diagnosis sütunudur, bu sütun tümörün iyi huylu (B) veya kötü huylu (M) olduğunu belirtir.
 
-📊 Veri Seti Bilgileri
-Özellik	Değer
-Kaynak	Kaggle
-Örnek Sayısı	569
-Özellik Sayısı	30
-Hedef Değişken	Diagnosis (Benign/Malignant)
-🛠️ Teknik Detaylar
-⚙️ Kullanılan Teknolojiler
-python
-# Temel Kütüphaneler
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+Kullanılan Kütüphaneler
+Projede aşağıdaki Python kütüphaneleri kullanılmıştır:
 
-# Makine Öğrenmesi
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
+Pandas: Veri işleme ve manipülasyonu için.
 
-# Model Interpretability
-import shap
-📈 Model Performansları
-Model	Doğruluk	Precision	Recall	F1-Score
-Random Forest	97.1%	0.96	0.98	0.97
-SVM	95.2%	0.94	0.96	0.95
-MLP	96.3%	0.95	0.97	0.96
-🔬 Analiz Adımları
-Veri Keşfi ve Temizleme
+NumPy: Sayısal hesaplamalar ve dizi işlemleri için.
 
-Eksik veri analizi
+Matplotlib & Seaborn: Veri görselleştirme ve grafik çizimi için.
 
-Aykırı değer tespiti
+Scikit-learn: Makine öğrenimi algoritmaları, model eğitimi, değerlendirme ve veri ön işleme adımları için.
 
-Korelasyon matrisi
+Proje Akışı
+Proje, aşağıdaki adımları içeren kapsamlı bir analiz süreci sunar:
 
-Özellik Mühendisliği
+Veri Yükleme ve Keşif: Veri seti yüklenir, temel istatistikleri, eksik verileri ve hedef değişkenin dağılımı incelenir.
 
-StandardScaler ile normalizasyon
+Veri Ön İşleme:
 
-Özellik önem sıralaması
+Gereksiz sütunlar (id) veri setinden çıkarılır.
 
-Model Eğitimi
+Kategorik diagnosis sütunu (M, B) sayısal değerlere (1, 0) dönüştürülür.
 
-Hiperparametre optimizasyonu
+Veri Görselleştirme:
 
-Çapraz doğrulama (5-fold)
+Tanı dağılımını gösteren çubuk grafikler oluşturulur.
 
-Sonuç Değerlendirme
+Özellikler arasındaki ilişkileri anlamak için korelasyon matrisi çizilir.
 
-Karışıklık matrisi
+Belirli özelliklerin tanıya göre dağılımını incelemek için kutu grafikleri (boxplot) kullanılır.
 
-Sınıflandırma raporu
+Özellik Seçimi: Rastgele Orman (Random Forest) algoritması kullanılarak, tahminde en yüksek öneme sahip özellikler belirlenir ve modelin performansını artırmak için bu özellikler kullanılır.
 
-SHAP analizi
+Veri Hazırlığı:
+
+Veri seti, eğitim ve test olmak üzere iki parçaya ayrılır.
+
+Farklı ölçeklere sahip özelliklerin etkisini dengelemek için StandardScaler ile veriler ölçeklendirilir.
+
+Model Eğitimi ve Değerlendirme: Üç farklı makine öğrenimi modeli eğitilir ve performansları karşılaştırılır:
+
+Rastgele Orman (Random Forest)
+
+Destek Vektör Makinesi (SVM)
+
+Yapay Sinir Ağı (MLPClassifier)
+
+Sonuçların Karşılaştırılması: Eğitilen her modelin doğruluk (accuracy), sınıflandırma raporu ve karışıklık matrisi gibi performans metrikleri sunulur. Son olarak, modellerin doğruluk puanlarını karşılaştıran bir grafik oluşturulur.
