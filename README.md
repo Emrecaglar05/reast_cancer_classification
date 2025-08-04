@@ -1,56 +1,63 @@
-Proje Başlığı: Meme Kanseri Teşhisi İçin Makine Öğrenimi Modelleri
-Bu proje, meme kanseri teşhisi için makine öğrenimi modellerini kullanarak hasta verilerini analiz eder. Amacımız, hücre çekirdeği özellikleri gibi verilerden yola çıkarak bir tümörün iyi huylu (benign) mu yoksa kötü huylu (malignant) mu olduğunu doğru bir şekilde tahmin edebilen modeller oluşturmaktır.
+🚀 Proje Başlığı
+Meme Kanseri Teşhisi için Makine Öğrenimi Modellerinin Geliştirilmesi
+🔍 Proje Özeti
+Bu proje, makine öğrenimi teknikleri kullanarak meme kanserinin erken teşhisini hedeflemektedir. Hücre çekirdeği özellikleri gibi medikal verilerden yararlanarak, tümörün iyi huylu (benign) veya kötü huylu (malignant) olup olmadığını yüksek doğrulukla sınıflandıran modeller geliştirilmiştir. Böylece, tanı sürecinde doktorlara destek olacak güçlü ve otomatik bir teşhis aracı ortaya konmuştur.
 
-Proje Amacı
-Meme kanseri erken teşhisi, tedavi başarısı için kritik öneme sahiptir. Bu proje, elde edilen tıbbi verileri kullanarak makine öğrenimi algoritmalarıyla potansiyel olarak kanserli hücreleri otomatik olarak tespit etmeyi hedefler. Bu sayede, doktorlara tanı sürecinde yardımcı olabilecek güçlü bir araç sunulması amaçlanmaktadır.
+🎯 Proje Amacı
+Meme kanserinde erken teşhis, tedavi başarısı için hayati önem taşır. Bu proje kapsamında, tıbbi veri setleri üzerinde makine öğrenimi algoritmaları uygulanarak, kanserli hücrelerin otomatik tespiti ve doğru sınıflandırılması sağlanmıştır. Amaç, doktorların tanı sürecini hızlandırmak ve hata payını minimize etmek için güvenilir modeller geliştirmektir.
 
-Veri Seti
-Bu proje, Wisconsin Meme Kanseri Veri Seti (Diagnosis) üzerinde çalışmaktadır. Veri seti, her bir tümörün çeşitli özelliklerini (yarıçap, doku, çevre, pürüzsüzlük vb.) içeren 30 farklı sayısal özniteliğe sahiptir. Veri setindeki temel hedef değişken diagnosis sütunudur, bu sütun tümörün iyi huylu (B) veya kötü huylu (M) olduğunu belirtir.
+📊 Veri Seti
+Kullanılan veri seti: Breast cancer dataset
 
-Kullanılan Kütüphaneler
-Projede aşağıdaki Python kütüphaneleri kullanılmıştır:
+İçerik: Her bir tümör için 30 farklı sayısal özellik (yarıçap, doku, çevre, pürüzsüzlük vb.)
 
-Pandas: Veri işleme ve manipülasyonu için.
+Hedef değişken: diagnosis (iyi huylu: B, kötü huylu: M)
 
-NumPy: Sayısal hesaplamalar ve dizi işlemleri için.
+🛠️ Kullanılan Teknolojiler ve Kütüphaneler
+Pandas & NumPy: Veri işleme ve sayısal analiz
 
-Matplotlib & Seaborn: Veri görselleştirme ve grafik çizimi için.
+Matplotlib & Seaborn: Veri görselleştirme
 
-Scikit-learn: Makine öğrenimi algoritmaları, model eğitimi, değerlendirme ve veri ön işleme adımları için.
+Scikit-learn: Makine öğrenimi modelleme, ön işleme ve değerlendirme
 
-Proje Akışı
-Proje, aşağıdaki adımları içeren kapsamlı bir analiz süreci sunar:
+🔄 Proje Süreci
+Veri Yükleme & Keşif Analizi
+Veri seti incelenmiş, eksik veri kontrolü yapılmış ve hedef değişken dağılımı görselleştirilmiştir.
 
-Veri Yükleme ve Keşif: Veri seti yüklenir, temel istatistikleri, eksik verileri ve hedef değişkenin dağılımı incelenir.
+Veri Ön İşleme
 
-Veri Ön İşleme:
+Gereksiz sütunlar (id) çıkarılmıştır.
 
-Gereksiz sütunlar (id) veri setinden çıkarılır.
+Kategorik diagnosis sütunu sayısal (M=1, B=0) hale getirilmiştir.
 
-Kategorik diagnosis sütunu (M, B) sayısal değerlere (1, 0) dönüştürülür.
+Veri Görselleştirme
 
-Veri Görselleştirme:
+Tanı dağılımı çubuk grafiklerle gösterildi.
 
-Tanı dağılımını gösteren çubuk grafikler oluşturulur.
+Özellikler arası korelasyon matrisi ile ilişkiler analiz edildi.
 
-Özellikler arasındaki ilişkileri anlamak için korelasyon matrisi çizilir.
+Seçilen özelliklerin tanıya göre dağılımı kutu grafikleriyle incelendi.
 
-Belirli özelliklerin tanıya göre dağılımını incelemek için kutu grafikleri (boxplot) kullanılır.
+Özellik Seçimi
+Random Forest algoritmasıyla en etkili özellikler belirlendi ve model performansı bu özelliklere odaklanarak artırıldı.
 
-Özellik Seçimi: Rastgele Orman (Random Forest) algoritması kullanılarak, tahminde en yüksek öneme sahip özellikler belirlenir ve modelin performansını artırmak için bu özellikler kullanılır.
+Veri Hazırlığı
 
-Veri Hazırlığı:
+Veri, eğitim ve test olarak ikiye ayrıldı.
 
-Veri seti, eğitim ve test olmak üzere iki parçaya ayrılır.
+Farklı ölçeklere sahip özellikler için StandardScaler ile ölçeklendirme uygulandı.
 
-Farklı ölçeklere sahip özelliklerin etkisini dengelemek için StandardScaler ile veriler ölçeklendirilir.
+Model Eğitimi & Değerlendirme
+Üç farklı model eğitildi ve karşılaştırıldı:
 
-Model Eğitimi ve Değerlendirme: Üç farklı makine öğrenimi modeli eğitilir ve performansları karşılaştırılır:
-
-Rastgele Orman (Random Forest)
+Random Forest
 
 Destek Vektör Makinesi (SVM)
 
 Yapay Sinir Ağı (MLPClassifier)
 
-Sonuçların Karşılaştırılması: Eğitilen her modelin doğruluk (accuracy), sınıflandırma raporu ve karışıklık matrisi gibi performans metrikleri sunulur. Son olarak, modellerin doğruluk puanlarını karşılaştıran bir grafik oluşturulur.
+Sonuçların Karşılaştırılması
+Modellerin doğruluk, sınıflandırma raporu ve karışıklık matrisi performansları detaylıca sunuldu ve başarıları grafiklerle görselleştirildi.
+
+🌟 Proje Çıktısı
+Bu çalışma, meme kanseri teşhisinde doktorlara destek sağlayabilecek doğru ve güvenilir makine öğrenimi modelleri geliştirilmesini sağlamış ve erken teşhiste kullanılabilecek pratik bir çözüm sunmuştur.
