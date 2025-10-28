@@ -1,5 +1,6 @@
 🚀 Proje Başlığı
 Meme Kanseri Teşhisi için Makine Öğrenimi Modellerinin Geliştirilmesi
+
 🔍 Proje Özeti
 Bu proje, makine öğrenimi teknikleri kullanarak meme kanserinin erken teşhisini hedeflemektedir. Hücre çekirdeği özellikleri gibi medikal verilerden yararlanarak, tümörün iyi huylu (benign) veya kötü huylu (malignant) olup olmadığını yüksek doğrulukla sınıflandıran modeller geliştirilmiştir. Böylece, tanı sürecinde doktorlara destek olacak güçlü ve otomatik bir teşhis aracı ortaya konmuştur.
 
